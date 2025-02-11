@@ -1,23 +1,9 @@
 from fastapi import FastAPI , HTTPException
 from pydantic import BaseModel 
 from typing import List 
-from fastapi.middleware.cors import CORSMiddleware 
+
 app = FastAPI()
 
-
-# Specify the allowed origin
-allowed_origins = [
-    "https://akramkhelilinnov.xyz/"
-]
-
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=allowed_origins,  # Allow specific origin
-    allow_credentials=True,        # Allow cookies if needed
-    allow_methods=["*"],           # Allow all HTTP methods
-    allow_headers=["*"],           # Allow all HTTP headers
-)
 # Define input data models
 class Task(BaseModel):
     id: int
@@ -58,8 +44,6 @@ def optimize_schedule(input_data: SchedulerInput):
         raise HTTPException(status_code=400, detail="No feasible schedule found.")
 
     return schedule
-
-
 
 # Health check endpoint
 @app.get("/")

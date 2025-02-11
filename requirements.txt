@@ -1,2 +1,4 @@
-fastApi 
-uvicorn 
+fastapi
+pydantic
+ortools
+uvicorn
