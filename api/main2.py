@@ -4,8 +4,24 @@ from pydantic import BaseModel
 from ortools.sat.python import cp_model
 from pydantic import BaseModel
 from typing import List
-
+from fastapi.middleware.cors import CORSMiddleware 
 app = FastAPI()
+
+
+
+# Specify the allowed origin
+allowed_origins = [
+    "https://akramkhelilinnov.xyz"
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,  # Allow specific origin
+    allow_credentials=True,        # Allow cookies if needed
+    allow_methods=["*"],           # Allow all HTTP methods
+    allow_headers=["*"],           # Allow all HTTP headers
+)
 
 # Define input data models
 class Task(BaseModel):
@@ -72,4 +88,4 @@ def optimize_schedule(input_data: SchedulerInput):
 # Health check endpoint
 @app.get("/")
 def read_root():
-    return {"message": "Task Scheduling Optimizer API is running!"}
+    return {"message": "Task Scheduling Optimizer API is running!"} 

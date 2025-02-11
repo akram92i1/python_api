@@ -7,7 +7,7 @@ app = FastAPI()
 
 # Specify the allowed origin
 allowed_origins = [
-    "https://akramkhelilinnov.xyz/"
+    "https://akramkhelilinnov.xyz"
 ]
 
 
