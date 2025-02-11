@@ -9,19 +9,19 @@ app = FastAPI()
 
 
 
-# Specify the allowed origin
-allowed_origins = [
-    "https://akramkhelilinnov.xyz"
-]
+# # Specify the allowed origin
+# allowed_origins = [
+#     "https://akramkhelilinnov.xyz"
+# ]
 
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=allowed_origins,  # Allow specific origin
-    allow_credentials=True,        # Allow cookies if needed
-    allow_methods=["*"],           # Allow all HTTP methods
-    allow_headers=["*"],           # Allow all HTTP headers
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=allowed_origins,  # Allow specific origin
+#     allow_credentials=True,        # Allow cookies if needed
+#     allow_methods=["*"],           # Allow all HTTP methods
+#     allow_headers=["*"],           # Allow all HTTP headers
+# )
 
 # Define input data models
 class Task(BaseModel):
